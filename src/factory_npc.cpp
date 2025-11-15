@@ -1,18 +1,18 @@
 #include "../include/factory_npc.h"
 
-std::unique_ptr<Npc> FactoryNpc::create_npc(const TypeNpc &type) {
+std::shared_ptr<Npc> FactoryNpc::create_npc(const TypeNpc &type) {
     switch (type) {
         case TypeNpc::dragon:
-            return std::make_unique<Dragon>();
+            return std::make_shared<Dragon>();
         case TypeNpc::frog:
-            return std::make_unique<Frog>();
+            return std::make_shared<Frog>();
         case TypeNpc::knight_errant:
-            return std::make_unique<KnightErrant>();
+            return std::make_shared<KnightErrant>();
     }
     return nullptr;
 }
 
-std::unique_ptr<Npc> FactoryNpc::create_npc_from_file(const TypeNpc &type, std::ifstream& in) {
+std::shared_ptr<Npc> FactoryNpc::create_npc_from_file(const TypeNpc &type, std::ifstream& in) {
     switch (type) {
         case TypeNpc::dragon:
             static Dragon dragon;
@@ -20,21 +20,21 @@ std::unique_ptr<Npc> FactoryNpc::create_npc_from_file(const TypeNpc &type, std::
             if (in.is_open()) in >> dragon;
             else throw std::logic_error("File not found");
 
-            return std::make_unique<Dragon>(dragon);
+            return std::make_shared<Dragon>(dragon);
         case TypeNpc::frog:
             static Frog frog;
 
             if (in.is_open()) in >> frog;
             else throw std::logic_error("File not found");
 
-            return std::make_unique<Frog>(frog);
+            return std::make_shared<Frog>(frog);
         case TypeNpc::knight_errant:
             static KnightErrant knight_errant;
 
             if (in.is_open()) in >> knight_errant;
             else throw std::logic_error("File not found");
 
-            return std::make_unique<KnightErrant>(knight_errant);
+            return std::make_shared<KnightErrant>(knight_errant);
     }
     return nullptr;
 }

@@ -1,6 +1,8 @@
 #ifndef LAB_06_DRAGON_H
 #define LAB_06_DRAGON_H
 
+#include <memory>
+
 #include "npc.h"
 
 class Dragon final : public Npc {
@@ -10,6 +12,8 @@ public:
 
     Dragon(Dragon &&other) noexcept : Npc(std::move(other)) {};
     Dragon(const Dragon &other) = default;
+
+    bool accept(std::shared_ptr <Npc> npc_ptr) const override;
 
     void print() const override;
 };

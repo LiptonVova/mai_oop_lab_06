@@ -2,8 +2,8 @@
 #define MAI_OOP_LAB_06_NPC_H
 
 #include <iostream>
-
-#include "string"
+#include <string>
+#include <memory>
 
 class Npc {
     friend std::istream& operator>>(std::istream& is, Npc& npc);
@@ -22,6 +22,8 @@ public:
 
     Npc(Npc&& other) noexcept;
     Npc(const Npc& other) = default;
+
+    virtual bool accept(std::shared_ptr <Npc> npc_ptr) const = 0;
 
     virtual void print() const = 0;
     virtual ~Npc() = default;

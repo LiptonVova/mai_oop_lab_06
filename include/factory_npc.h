@@ -14,8 +14,8 @@ enum class TypeNpc { dragon, frog, knight_errant };
 
 class FactoryNpc {
 public:
-    static std::unique_ptr<Npc> create_npc(const TypeNpc& type);
-    static std::unique_ptr<Npc> create_npc_from_file(const TypeNpc& type, std::ifstream& in);
+    static std::shared_ptr<Npc> create_npc(const TypeNpc& type);
+    static std::shared_ptr<Npc> create_npc_from_file(const TypeNpc& type, std::ifstream& in);
 };
 
 #endif //LAB_06_FACTORY_NPC_H

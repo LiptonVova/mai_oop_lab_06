@@ -1,6 +1,8 @@
 #ifndef LAB_06_FROG_H
 #define LAB_06_FROG_H
 
+#include <memory>
+
 #include "npc.h"
 
 class Frog final: public Npc {
@@ -10,6 +12,8 @@ public:
 
     Frog(Frog &&other) noexcept : Npc(std::move(other)) {};
     Frog(Frog &other) = default;
+
+    bool accept(std::shared_ptr <Npc> npc_ptr) const override;
 
     void print() const override;
 };

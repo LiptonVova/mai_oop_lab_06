@@ -8,6 +8,9 @@ public:
     KnightErrant() : Npc() {};
     KnightErrant(const unsigned int x, const unsigned int y, const std::string &name) : Npc(x, y, name) {};
 
+    KnightErrant(KnightErrant &&other) noexcept : Npc(std::move(other)) {};
+    KnightErrant(const KnightErrant &other) = default;
+
     void print() const override;
 };
 

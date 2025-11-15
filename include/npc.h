@@ -6,7 +6,9 @@
 #include "string"
 
 class Npc {
-private:
+    friend std::istream& operator>>(std::istream& is, Npc& npc);
+
+protected:
     unsigned int x = 0;
     unsigned int y = 0;
     std::string unique_name;
@@ -17,6 +19,9 @@ public:
     Npc(const unsigned int x, const unsigned int y, const std::string &name) : x(x), y(y) {
         unique_name = name;
     }
+
+    Npc(Npc&& other) noexcept;
+    Npc(const Npc& other) = default;
 
     virtual void print() const = 0;
     virtual ~Npc() = default;

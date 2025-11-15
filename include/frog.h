@@ -8,6 +8,9 @@ public:
     Frog() : Npc() {};
     Frog(const unsigned int x, const unsigned int y, const std::string &name) : Npc(x, y, name) {};
 
+    Frog(Frog &&other) noexcept : Npc(std::move(other)) {};
+    Frog(Frog &other) = default;
+
     void print() const override;
 };
 

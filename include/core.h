@@ -6,7 +6,7 @@
 #include "npc.h"
 
 
-void start_fight(const std::set<std::shared_ptr<Npc> > &set_npc, const int distance);
+void start_fight(std::set<std::shared_ptr<Npc> > &set_npc, const int distance);
 
 
 #endif //LAB_06_CORE_H

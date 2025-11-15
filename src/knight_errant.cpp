@@ -3,7 +3,7 @@
 #include "../include/visitor_simulate_fight.h"
 
 std::string KnightErrant::info() const {
-    return "I knight errant(" + std::to_string(this->x) + ' ' + std::to_string(this->y) + ") " + this->unique_name;
+    return "knight errant(" + std::to_string(this->x) + ' ' + std::to_string(this->y) + ") " + '[' + this->unique_name + ']';
 }
 bool KnightErrant::accept(std::shared_ptr <Npc> npc_ptr) const {
     VisitorFightKnightErrant visitor_fight_knight_errant;

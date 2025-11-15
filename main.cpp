@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 
+#include "include/core.h"
 #include "include/factory_npc.h"
 #include "include/observer.h"
 
@@ -58,10 +59,29 @@ int main() {
     set_npc.insert(frog_ptr);
     set_npc.insert(knight_errant_ptr);
 
-    print_all_npc(std::cout, set_npc);
+    print_all_npc(std::cout, set_npc) << '\n';
 
 
+    knight_errant_ptr->attach(stdin_observer);
+    knight_errant_ptr->attach(log_observer);
 
+    dragon_ptr_from_file->attach(stdin_observer);
+    dragon_ptr_from_file->attach(log_observer);
+
+    frog_ptr_from_file->attach(stdin_observer);
+    frog_ptr_from_file->attach(log_observer);
+
+    frog_ptr->attach(stdin_observer);
+    frog_ptr->attach(log_observer);
+
+    knight_errant_ptr->attach(stdin_observer);
+    knight_errant_ptr->attach(log_observer);
+
+    set_npc.insert(knight_errant_ptr);
+    set_npc.insert(dragon_ptr_from_file);
+    set_npc.insert(frog_ptr_from_file);
+
+    start_fight(set_npc, 1);
 
     return 0;
 }

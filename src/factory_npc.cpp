@@ -1,13 +1,13 @@
 #include "../include/factory_npc.h"
 
-std::shared_ptr<Npc> FactoryNpc::create_npc(const TypeNpc &type) {
+std::shared_ptr<Npc> FactoryNpc::create_npc(const TypeNpc &type, const std::string &name, unsigned int x, unsigned int y) {
     switch (type) {
         case TypeNpc::dragon:
-            return std::make_shared<Dragon>();
+            return std::make_shared<Dragon>(x, y, name);
         case TypeNpc::frog:
-            return std::make_shared<Frog>();
+            return std::make_shared<Frog>(x, y, name);
         case TypeNpc::knight_errant:
-            return std::make_shared<KnightErrant>();
+            return std::make_shared<KnightErrant>(x, y, name);
     }
     return nullptr;
 }

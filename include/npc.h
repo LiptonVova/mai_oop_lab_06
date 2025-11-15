@@ -26,9 +26,7 @@ protected:
 public:
     Npc() = default;
 
-    Npc(const unsigned int x, const unsigned int y, const std::string &name) : x(x), y(y) {
-        unique_name = name;
-    }
+    Npc(const unsigned int x, const unsigned int y, const std::string &name);
 
     Npc(Npc&& other) noexcept;
     Npc(const Npc& other) = default;

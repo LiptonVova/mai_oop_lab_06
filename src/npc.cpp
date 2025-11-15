@@ -14,6 +14,20 @@ Npc::Npc(Npc&& other) noexcept {
     y = other.y;
 }
 
+Npc::Npc(const unsigned int x, const unsigned int y, const std::string &name) {
+    static std::set<std::string> names;
+    static unsigned int count = 0;
+
+    this->x = x;
+    this->y = y;
+    std::string copy_name = name;
+    if (names.count(name) != 0) {
+        copy_name += std::to_string(count++);
+    }
+    this->unique_name = std::move(copy_name);
+    names.insert(name);
+}
+
 unsigned int Npc::get_x() const {
     return this->x;
 }

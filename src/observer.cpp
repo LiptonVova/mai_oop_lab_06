@@ -19,7 +19,7 @@ void FileObserver::update(const Npc &attacker, const Npc &defender) {
 
 void StdinObserver::update(const Npc &attacker, const Npc &defender) {
     std::cout << "[stdin observer]:";
-    attacker.print(std::cout);
+    attacker.print(std::cout) << ' ';
     std::cout << "kill ";
     defender.print(std::cout);
     std::cout << '\n';

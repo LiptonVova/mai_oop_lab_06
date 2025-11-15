@@ -55,7 +55,7 @@ void Npc::notify(Npc &defender) {
 }
 
 std::ofstream& Npc::save(std::ofstream &os) const {
-    os << this->info() << '\n';
+    os << this->info();
     return os;
 }
 

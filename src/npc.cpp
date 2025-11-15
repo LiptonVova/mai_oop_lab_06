@@ -41,3 +41,8 @@ void Npc::notify(Npc &defender) {
         observer->update(*this, defender);
     }
 }
+
+std::ofstream& Npc::save(std::ofstream &os) const {
+    os << this->info() << '\n';
+    return os;
+}

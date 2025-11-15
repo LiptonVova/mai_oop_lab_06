@@ -10,9 +10,9 @@ int main() {
     std::shared_ptr<Npc> frog_ptr = FactoryNpc::create_npc(TypeNpc::frog);
     std::shared_ptr<Npc> knight_errant_ptr = FactoryNpc::create_npc(TypeNpc::knight_errant);
 
-    dragon_ptr->print();
-    frog_ptr->print();
-    knight_errant_ptr->print();
+    std::cout << dragon_ptr->info();
+    std::cout << frog_ptr->info();
+    std::cout << knight_errant_ptr->info();
 
     std::ifstream in;
     in.open("../input.txt", std::ios::in);
@@ -23,9 +23,19 @@ int main() {
 
     std::cout << "Test factory from file:\n";
 
-    dragon_ptr_from_file->print();
-    frog_ptr_from_file->print();
-    knight_errant_ptr_from_file->print();
+    std::cout << dragon_ptr_from_file->info();
+    std::cout << frog_ptr_from_file->info();
+    std::cout << knight_errant_ptr_from_file->info();
+
+    std::cout << "Test save npc in file\n";
+
+    std::ofstream os("../log.txt", std::ios::app);
+
+    dragon_ptr->save(os);
+    frog_ptr->save(os);
+    knight_errant_ptr->save(os);
+
+    os.close();
 
     std::cout << dragon_ptr_from_file->accept(dragon_ptr) << std::endl;
     std::cout << dragon_ptr_from_file->accept(knight_errant_ptr) << std::endl;

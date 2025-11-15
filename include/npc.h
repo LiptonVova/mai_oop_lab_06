@@ -44,6 +44,8 @@ public:
 
     virtual std::string info() const = 0;
 
+    std::ofstream& save(std::ofstream &os) const;
+
 
     virtual ~Npc() = default;
 };

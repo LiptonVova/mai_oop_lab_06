@@ -23,6 +23,10 @@ public:
     Npc(Npc&& other) noexcept;
     Npc(const Npc& other) = default;
 
+    unsigned int get_x() const;
+    unsigned int get_y() const;
+    std::string get_name() const;
+
     virtual bool accept(std::shared_ptr <Npc> npc_ptr) const = 0;
 
     virtual void print() const = 0;

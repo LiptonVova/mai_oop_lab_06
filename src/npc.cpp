@@ -15,3 +15,15 @@ Npc::Npc(Npc&& other) noexcept {
     x = other.x;
     y = other.y;
 }
+
+unsigned int Npc::get_x() const {
+    return this->x;
+}
+
+unsigned int Npc::get_y() const {
+    return this->y;
+}
+
+std::string Npc::get_name() const {
+    return this->unique_name;
+}

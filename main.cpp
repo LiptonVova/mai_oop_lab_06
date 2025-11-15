@@ -4,7 +4,6 @@
 #include "include/factory_npc.h"
 
 
-
 int main() {
     std::shared_ptr<Npc> dragon_ptr = FactoryNpc::create_npc(TypeNpc::dragon);
     std::shared_ptr<Npc> frog_ptr = FactoryNpc::create_npc(TypeNpc::frog);

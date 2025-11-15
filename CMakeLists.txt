@@ -26,6 +26,7 @@ add_library(${CMAKE_PROJECT_NAME}_lib
         src/knight_errant.cpp
         src/factory_npc.cpp
         src/visitor_simulate_fight.cpp
+        src/core.cpp
 )
 
 add_executable(${CMAKE_PROJECT_NAME}_out main.cpp)

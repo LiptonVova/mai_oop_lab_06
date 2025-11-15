@@ -46,3 +46,8 @@ std::ofstream& Npc::save(std::ofstream &os) const {
     os << this->info() << '\n';
     return os;
 }
+
+std::ostream& Npc::print(std::ostream& os) const {
+    os << this->info();
+    return os;
+}

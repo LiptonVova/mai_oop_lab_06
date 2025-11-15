@@ -43,6 +43,7 @@ public:
     void notify(Npc &defender);
 
     virtual std::string info() const = 0;
+    std::ostream& print(std::ostream& os) const;
 
     std::ofstream& save(std::ofstream &os) const;
 

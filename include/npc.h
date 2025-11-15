@@ -1,9 +1,17 @@
 #ifndef MAI_OOP_LAB_06_NPC_H
 #define MAI_OOP_LAB_06_NPC_H
 
+class Npc;
+class Observer;
+
 #include <iostream>
 #include <string>
 #include <memory>
+#include <vector>
+#include <algorithm>
+
+#include "observer.h"
+
 
 class Npc {
     friend std::istream& operator>>(std::istream& is, Npc& npc);
@@ -12,6 +20,7 @@ protected:
     unsigned int x = 0;
     unsigned int y = 0;
     std::string unique_name;
+    std::vector<std::shared_ptr<Observer>> observers;
 
 public:
     Npc() = default;
@@ -28,6 +37,10 @@ public:
     std::string get_name() const;
 
     virtual bool accept(std::shared_ptr <Npc> npc_ptr) const = 0;
+
+    void attach(std::shared_ptr <Observer> observer);
+    void detach(std::shared_ptr <Observer> observer);
+    void notify(Npc &defender);
 
     virtual void print() const = 0;
     virtual ~Npc() = default;

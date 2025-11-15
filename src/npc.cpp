@@ -27,3 +27,17 @@ unsigned int Npc::get_y() const {
 std::string Npc::get_name() const {
     return this->unique_name;
 }
+
+void Npc::attach(std::shared_ptr<Observer> observer) {
+    observers.push_back(observer);
+}
+
+void Npc::detach(std::shared_ptr<Observer> observer) {
+    observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
+}
+
+void Npc::notify(Npc &defender) {
+    for (auto &observer : observers) {
+        observer->update(*this, defender);
+    }
+}

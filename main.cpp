@@ -2,6 +2,7 @@
 #include <memory>
 
 #include "include/factory_npc.h"
+#include "include/observer.h"
 
 
 int main() {
@@ -28,6 +29,11 @@ int main() {
 
     std::cout << dragon_ptr_from_file->accept(dragon_ptr) << std::endl;
     std::cout << dragon_ptr_from_file->accept(knight_errant_ptr) << std::endl;
+
+    StdinObserver stdin_observer;
+
+    dragon_ptr->attach(std::make_shared<Observer>(stdin_observer));
+
 
     return 0;
 }

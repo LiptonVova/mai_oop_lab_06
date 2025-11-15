@@ -2,7 +2,7 @@
 
 
 void FileObserver::update(const Npc &attacker, const Npc &defender) {
-    log_file.open("../log_file.txt", std::ios::app);
+    log_file.open("../log.txt", std::ios::app);
 
     if (log_file.is_open()) {
         log_file << "file observer: ...\n";

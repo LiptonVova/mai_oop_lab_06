@@ -9,6 +9,7 @@ class Observer;
 #include <memory>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 #include "observer.h"
 
@@ -50,6 +51,8 @@ public:
 
     virtual ~Npc() = default;
 };
+
+std::ostream &print_all_npc(std::ostream &os, std::set<std::shared_ptr<Npc>> &set_npc);
 
 
 #endif //MAI_OOP_LAB_06_NPC_H

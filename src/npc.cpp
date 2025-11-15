@@ -51,3 +51,11 @@ std::ostream& Npc::print(std::ostream& os) const {
     os << this->info();
     return os;
 }
+
+
+std::ostream &print_all_npc(std::ostream &os, std::set<std::shared_ptr<Npc>> &set_npc) {
+    for (auto &npc : set_npc) {
+        npc->print(os);
+    }
+    return os;
+}

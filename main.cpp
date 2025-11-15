@@ -53,6 +53,15 @@ int main() {
     dragon_ptr->notify(*frog_ptr);
 
 
+    std::set<std::shared_ptr<Npc>> set_npc;
+    set_npc.insert(dragon_ptr);
+    set_npc.insert(frog_ptr);
+    set_npc.insert(knight_errant_ptr);
+
+    print_all_npc(std::cout, set_npc);
+
+
+
 
     return 0;
 }

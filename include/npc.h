@@ -42,7 +42,9 @@ public:
     void detach(std::shared_ptr <Observer> observer);
     void notify(Npc &defender);
 
-    virtual void print() const = 0;
+    virtual std::string info() const = 0;
+
+
     virtual ~Npc() = default;
 };
 

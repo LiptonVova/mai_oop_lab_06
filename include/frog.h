@@ -15,7 +15,7 @@ public:
 
     bool accept(std::shared_ptr <Npc> npc_ptr) const override;
 
-    void print() const override;
+    std::string info() const override;
 };
 
 #endif //LAB_06_FROG_H

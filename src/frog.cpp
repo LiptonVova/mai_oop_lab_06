@@ -2,8 +2,8 @@
 
 #include "../include/visitor_simulate_fight.h"
 
-void Frog::print() const {
-    std::cout << "I frog(" << this->x << ' ' << this->y << ") " << this->unique_name << '\n';
+std::string Frog::info() const {
+    return "I frog(" + std::to_string(this->x) + ' ' + std::to_string(this->y) + ") " + this->unique_name;
 }
 
 bool Frog::accept(std::shared_ptr <Npc> npc_ptr) const {

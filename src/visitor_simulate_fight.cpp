@@ -24,6 +24,7 @@ std::set<std::shared_ptr<Npc>> simulate_fight(const std::set<std::shared_ptr<Npc
 
             if (attacker->accept(defender)) {
                 dead_list.insert(defender);
+                attacker->notify(*defender);
             }
         }
     }

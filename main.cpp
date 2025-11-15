@@ -30,9 +30,18 @@ int main() {
     std::cout << dragon_ptr_from_file->accept(dragon_ptr) << std::endl;
     std::cout << dragon_ptr_from_file->accept(knight_errant_ptr) << std::endl;
 
-    StdinObserver stdin_observer;
+    auto stdin_observer = std::make_shared<StdinObserver>();
+    auto log_observer = std::make_shared<FileObserver>();
+    dragon_ptr->attach(stdin_observer);
+    dragon_ptr->attach(log_observer);
 
-    dragon_ptr->attach(std::make_shared<Observer>(stdin_observer));
+    dragon_ptr->notify(*frog_ptr);
+
+    std::cout << "after detach : \n";
+    dragon_ptr->detach(stdin_observer);
+
+    dragon_ptr->notify(*frog_ptr);
+
 
 
     return 0;

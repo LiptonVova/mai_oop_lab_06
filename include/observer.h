@@ -12,6 +12,8 @@
 class Observer {
 public:
     virtual void update(const Npc &attacker, const Npc &defender) = 0;
+    Observer() = default;
+    Observer(const Observer &) = default;
     virtual ~Observer() = default;
 };
 

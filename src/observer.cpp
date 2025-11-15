@@ -1,5 +1,6 @@
 #include "../include/observer.h"
 
+
 void FileObserver::update(const Npc &attacker, const Npc &defender) {
     log_file.open("../log_file.txt", std::ios::app);
 
